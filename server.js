@@ -6,7 +6,7 @@ const cors = require("cors")
 require("dotenv/config")
 
 app.get("/", (req, res)=>{
-    send("hello")
+    res.send("hello")
     console.log("it is working")
 })
 
