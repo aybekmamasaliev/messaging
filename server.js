@@ -22,12 +22,17 @@ app.get("/", async (req, res) => {
     }
   });
 
-  // app.get("/user", async(req,res)=>{
-  //     try{
-  //       const user = 
-  //     }
-  //     catch{}
-  // })
+
+  app.get("/orders", async(req,res)=>{
+    try {
+      const orders = await Orders.find()
+      res.json(orders) 
+      console.log("it is working");
+    } catch (error) {
+      res.json({message:error}
+        )
+    }
+  })
 
 
 mongoose.set('strictQuery', false)
