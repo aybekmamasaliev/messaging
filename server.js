@@ -19,7 +19,9 @@ app.get("/", async (req, res) => {
       res.json({ message: err });
     }
   });
-  mongoose.set('strictQuery', false)
+
+
+mongoose.set('strictQuery', false)
 mongoose.connect(
     process.env.DB_CONNECTION,
   { useNewUrlParser: true },
@@ -30,6 +32,6 @@ mongoose.connect(
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT);
+app.listen("fmvjd");
 
 //https://messaging1.onrender.com/
