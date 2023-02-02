@@ -17,7 +17,7 @@ app.get("/", async (req, res) => {
   });
 
 mongoose.connect(
-    "mongodb+srv://aibek:1q2w3e4r@cluster0.cnmrppi.mongodb.net",
+    process.env.DB_CONNECTION,
   { useNewUrlParser: true },
   (err) => {
     console.log("ok");
@@ -26,6 +26,6 @@ mongoose.connect(
 
 const PORT = process.env.PORT || 3000;
 
-app.listen("https://messaging1.onrender.com/");
+app.listen(PORT);
 
 //https://messaging1.onrender.com/
