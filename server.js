@@ -1,38 +1,37 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const routeUser = require("./routes/route");
+const routeReviews = require("./routes/reviews");
+const routeOrder = require("./routes/orders");
 const bodyParser = require("body-parser");
-const Goods=require("./1/Goods")
 const cors = require("cors");
 require("dotenv/config");
-
 app.use(bodyParser.json());
 app.use(cors());
-
-app.get("/", async (req, res) => {
-//   res.send("hello");
-    try {
-      const goods = await Goods.find();
-      res.json(goods);
-      console.log("it is working");
-    } catch (err) {
-      res.json({ message: err });
-    }
-  });
-
-
-
 mongoose.set('strictQuery', false)
 mongoose.connect(
-    process.env.DB_CONNECTION,
+  process.env.DB_CONNECTION,
   { useNewUrlParser: true },
   (err) => {
     console.log("ok");
   }
 );
 
-const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => {
+  res.send("working");
+});
 
-app.listen(3000);
+app.use("/user", routeUser);
 
-//https://messaging1.onrender.com/
+app.use("/reviews", routeReviews);
+
+app.use("/orders", routeOrder);
+
+app.use((req, res, next) => {
+  res.status(404).send("Sorry can't find that!")
+})
+
+app.listen(3050, () => {
+  console.log("connected");
+});
