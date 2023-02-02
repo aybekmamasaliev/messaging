@@ -26,6 +26,6 @@ mongoose.connect(
 
 const PORT = process.env.PORT || 3000;
 
-app.listen("messaging1.onrender.com");
+app.listen(PORT);
 
 //https://messaging1.onrender.com/
