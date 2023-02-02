@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const Goods=require("../deploy express/1/Goods")
+const Orders=require("../deploy express/1/Orders")
+const Rews=require("../deploy express/1/Rews")
 const cors = require("cors");
 require("dotenv/config");
 
@@ -19,6 +21,13 @@ app.get("/", async (req, res) => {
       res.json({ message: err });
     }
   });
+
+  // app.get("/user", async(req,res)=>{
+  //     try{
+  //       const user = 
+  //     }
+  //     catch{}
+  // })
 
 
 mongoose.set('strictQuery', false)
