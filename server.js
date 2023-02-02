@@ -3,8 +3,6 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const Goods=require("../deploy express/1/Goods")
-const Orders=require("../deploy express/1/Orders")
-const Rews=require("../deploy express/1/Rews")
 const cors = require("cors");
 require("dotenv/config");
 
@@ -22,17 +20,6 @@ app.get("/", async (req, res) => {
     }
   });
 
-
-  app.get("/orders", async(req,res)=>{
-    try {
-      const orders = await Orders.find()
-      res.json(orders) 
-      console.log("it is working");
-    } catch (error) {
-      res.json({message:error}
-        )
-    }
-  })
 
 
 mongoose.set('strictQuery', false)
